@@ -1,7 +1,6 @@
 # MaxMind minFraud Chargeback API Client
 
-![php 5.4+](https://img.shields.io/badge/php-min%205.4-red.svg?style=flat-square)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/slowprog/maxmind-minfraud-chargeback/blob/master/LICENSE.md)
+[![Build Status](https://travis-ci.org/slowprog/maxmind-minfraud-chargeback.svg?branch=master)](https://travis-ci.org/slowprog/maxmind-minfraud-chargeback)
 
 This is a client for [MaxMind's minFraud Chargeback Web Service Api](http://dev.maxmind.com/minfraud/chargeback/).
 
