@@ -13,15 +13,19 @@ class Chargeback
     /**
      * Indicates transaction is unlikely fraudulent
      */
-    const NOT_FRAUD = 'not_fraud';
+    const TAG_NOT_FRAUD = 'not_fraud';
     /**
      * Indicates transaction is suspectedly fraudulent
      */
-    const SUSPECTED_FRAUD = 'suspected_fraud';
+    const TAG_SUSPECTED_FRAUD = 'suspected_fraud';
+    /**
+     * Indicates transaction is spam or abuse
+     */
+    const TAG_SPAM_OR_ABUSE = 'spam_or_abuse';
     /**
      * Indicates transaction is likely fraudulent
      */
-    const KNOWN_FRAUD = 'known_fraud';
+    const TAG_CHARGEBACK = 'chargeback';
 
     /**
      * @var string
@@ -34,7 +38,7 @@ class Chargeback
     /**
      * @var string
      */
-    protected $fraudScore;
+    protected $tag;
     /**
      * @var string
      */
@@ -80,25 +84,26 @@ class Chargeback
     }
 
     /**
-     * @param string $fraudScore A string indicating the likelihood that
+     * @param string $tag A string indicating the likelihood that
      * a transaction may be fraudulent.
-     * Possible values: ‘not_fraud’, ‘suspected_fraud’, ‘known_fraud’.
+     * Possible values: not_fraud, suspected_fraud, spam_or_abuse, chargeback.
      *
      * @throws InvalidArgumentException
      *
      * @return Chargeback
      */
-    public function setFraudScore($fraudScore)
+    public function setTag($tag)
     {
-        if (!in_array($fraudScore, [
-                static::KNOWN_FRAUD,
-                static::NOT_FRAUD,
-                static::SUSPECTED_FRAUD
+        if (!in_array($tag, [
+                static::TAG_CHARGEBACK,
+                static::TAG_SPAM_OR_ABUSE,
+                static::TAG_NOT_FRAUD,
+                static::TAG_SUSPECTED_FRAUD
             ])) {
             throw new InvalidArgumentException('Invalid fraud score.');
         }
 
-        $this->fraudScore = $fraudScore;
+        $this->tag = $tag;
 
         return $this;
     }
@@ -173,8 +178,8 @@ class Chargeback
             $array['chargeback_code'] = $this->chargebackCode;
         }
 
-        if ($this->fraudScore) {
-            $array['fraud_score'] = $this->fraudScore;
+        if ($this->tag) {
+            $array['tag'] = $this->tag;
         }
 
         if ($this->maxmindId) {

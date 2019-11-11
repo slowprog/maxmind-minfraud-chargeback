@@ -8,7 +8,7 @@ use MaxMind\MinFraudChargeback\Auth\Credential;
 
 $chargeback = new Chargeback('77.77.77.77');
 $chargeback->setChargebackCode('CHARGEBACK_STRING')
-    ->setFraudScore(Chargeback::SUSPECTED_FRAUD)
+    ->setTag(Chargeback::TAG_SUSPECTED_FRAUD)
     ->setMaxmindId('XXXXXXXX')
     ->setMinfraudId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
     ->setTransactionId('XXXXXX');

@@ -18,7 +18,7 @@ class ExceptionAbstract extends Exception
     }
 
     /**
-     * Possible values for fraud_score are ‘not_fraud’, ‘suspected_fraud’ and ‘known_fraud’.
+     * Possible values for fraud_score are not_fraud, suspected_fraud and spam_or_abuse, chargeback.
      * Supplying any other value for fraud_score will trigger this error.
      */
     const FRAUD_SCORE_INVALID = 'FRAUD_SCORE_INVALID';

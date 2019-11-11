@@ -25,30 +25,31 @@ class ChargebackTest extends \PHPUnit_Framework_TestCase
     /**
      * @return array
      */
-    public function fraudScoreProvider()
+    public function tagProvider()
     {
         return [
-            [Chargeback::KNOWN_FRAUD],
-            [Chargeback::NOT_FRAUD],
-            [Chargeback::SUSPECTED_FRAUD],
+            [Chargeback::TAG_CHARGEBACK],
+            [Chargeback::TAG_SPAM_OR_ABUSE],
+            [Chargeback::TAG_NOT_FRAUD],
+            [Chargeback::TAG_SUSPECTED_FRAUD],
         ];
     }
 
     /**
-     * @dataProvider fraudScoreProvider
+     * @dataProvider tagProvider
      *
-     * @param string $fraudScore
+     * @param string $tag
      */
-    public function testSetFraudScore($fraudScore)
+    public function testSetTag($tag)
     {
         // Act
-        $this->chargeback->setFraudScore($fraudScore);
+        $this->chargeback->setTag($tag);
         $array = $this->chargeback->toArray();
 
         // Assert
         $this->assertSame([
             'ip_address' => '77.77.77.77',
-            'fraud_score' => $fraudScore
+            'tag' => $tag
             ], $array);
     }
 
@@ -58,7 +59,7 @@ class ChargebackTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException('\InvalidArgumentException', 'Invalid fraud score.');
 
         // Act
-        $this->chargeback->setFraudScore('not a valid fraud score');
+        $this->chargeback->setTag('not a valid fraud score');
     }
 
     public function testSetMaxmindId()
