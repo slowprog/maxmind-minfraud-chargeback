@@ -1,9 +1,9 @@
 <?php
 
-namespace Pachico\MaxMind\MinFraudChargeback\Http;
+namespace MaxMind\MinFraudChargeback\Http;
 
-use Pachico\MaxMind\MinFraudChargeback\Chargeback;
-use Pachico\MaxMind\MinFraudChargeback\Exception\ExceptionAbstract;
+use MaxMind\MinFraudChargeback\Chargeback;
+use MaxMind\MinFraudChargeback\Exception\ExceptionAbstract;
 
 class CurlClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -27,7 +27,7 @@ class CurlClientTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->curlMock = $this->getMock('\Curl\Curl');
-        $credentialMockBuilder = $this->getMockBuilder('Pachico\MaxMind\MinFraudChargeback\Auth\Credential');
+        $credentialMockBuilder = $this->getMockBuilder('MaxMind\MinFraudChargeback\Auth\Credential');
         $credentialMockBuilder->disableOriginalConstructor();
         $this->credentialMock = $credentialMockBuilder->getMock();
         $this->chargeback = new Chargeback('77.77.77.77');
@@ -111,7 +111,7 @@ class CurlClientTest extends \PHPUnit_Framework_TestCase
     public function testUnsuccessfulReporting()
     {
         // Arrange
-        $this->setExpectedException('Pachico\MaxMind\MinFraudChargeback\Exception\ExceptionAbstract');
+        $this->setExpectedException('MaxMind\MinFraudChargeback\Exception\ExceptionAbstract');
         $this->curlMock->expects($this->once())->method('setBasicAuthentication');
         $this->curlMock->expects($this->once())->method('setHeader');
         $this->curlMock->expects($this->once())->method('post');
@@ -136,17 +136,17 @@ class CurlClientTest extends \PHPUnit_Framework_TestCase
     public function errorMessageExceptionProvider()
     {
         return [
-            [ExceptionAbstract::AUTHORIZATION_INVALID, 'Pachico\MaxMind\MinFraudChargeback\Exception\UnauthorizedException'],
-            [ExceptionAbstract::FRAUD_SCORE_INVALID, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidFraudScoreException'],
-            [ExceptionAbstract::IP_ADDRESS_INVALID, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidIpException'],
-            [ExceptionAbstract::IP_ADDRESS_RESERVED, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidIpException'],
-            [ExceptionAbstract::JSON_INVALID, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidJSONException'],
-            [ExceptionAbstract::LICENSE_KEY_REQUIRED, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidLicenceException'],
-            [ExceptionAbstract::MAXMIND_ID_INVALID, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidMaxMindIdException'],
-            [ExceptionAbstract::MINFRAUD_ID_INVALID, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidMinFraudIdException'],
-            [ExceptionAbstract::PARAMETER_UNKNOWN, 'Pachico\MaxMind\MinFraudChargeback\Exception\UnknownParameterException'],
-            [ExceptionAbstract::SERVICE_UNAVAILABLE, 'Pachico\MaxMind\MinFraudChargeback\Exception\ServiceUnavailableException'],
-            [ExceptionAbstract::USER_ID_REQUIRED, 'Pachico\MaxMind\MinFraudChargeback\Exception\InvalidUserIdException'],
+            [ExceptionAbstract::AUTHORIZATION_INVALID, 'MaxMind\MinFraudChargeback\Exception\UnauthorizedException'],
+            [ExceptionAbstract::FRAUD_SCORE_INVALID, 'MaxMind\MinFraudChargeback\Exception\InvalidFraudScoreException'],
+            [ExceptionAbstract::IP_ADDRESS_INVALID, 'MaxMind\MinFraudChargeback\Exception\InvalidIpException'],
+            [ExceptionAbstract::IP_ADDRESS_RESERVED, 'MaxMind\MinFraudChargeback\Exception\InvalidIpException'],
+            [ExceptionAbstract::JSON_INVALID, 'MaxMind\MinFraudChargeback\Exception\InvalidJSONException'],
+            [ExceptionAbstract::LICENSE_KEY_REQUIRED, 'MaxMind\MinFraudChargeback\Exception\InvalidLicenceException'],
+            [ExceptionAbstract::MAXMIND_ID_INVALID, 'MaxMind\MinFraudChargeback\Exception\InvalidMaxMindIdException'],
+            [ExceptionAbstract::MINFRAUD_ID_INVALID, 'MaxMind\MinFraudChargeback\Exception\InvalidMinFraudIdException'],
+            [ExceptionAbstract::PARAMETER_UNKNOWN, 'MaxMind\MinFraudChargeback\Exception\UnknownParameterException'],
+            [ExceptionAbstract::SERVICE_UNAVAILABLE, 'MaxMind\MinFraudChargeback\Exception\ServiceUnavailableException'],
+            [ExceptionAbstract::USER_ID_REQUIRED, 'MaxMind\MinFraudChargeback\Exception\InvalidUserIdException'],
         ];
     }
 

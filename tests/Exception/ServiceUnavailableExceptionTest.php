@@ -1,6 +1,6 @@
 <?php
 
-namespace Pachico\MaxMind\MinFraudChargeback\Exception;
+namespace MaxMind\MinFraudChargeback\Exception;
 
 class ServiceUnavailableExceptionTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,19 +1,11 @@
 <?php
 
-/**
- * This file is part of Pachico\MaxMind\MinFraudChargeback. (https://github.com/pachico/maxmind-minfraud-chargeback)
- *
- * @link https://github.com/pachico/maxmind-minfraud-chargeback for the canonical source repository
- * @copyright Copyright (c) 2016-2017 Mariano F.co Benítez Mulet. (https://github.com/pachico/)
- * @license https://raw.githubusercontent.com/pachico/maxmind-minfraud-chargeback/master/LICENSE.md MIT
- */
+namespace MaxMind\MinFraudChargeback\Http;
 
-namespace Pachico\MaxMind\MinFraudChargeback\Http;
-
-use Pachico\MaxMind\MinFraudChargeback\Auth\Credential;
-use Pachico\MaxMind\MinFraudChargeback\Chargeback;
-use Pachico\MaxMind\MinFraudChargeback\Exception\ExceptionAbstract;
-use Pachico\MaxMind\MinFraudChargeback\Exception;
+use MaxMind\MinFraudChargeback\Auth\Credential;
+use MaxMind\MinFraudChargeback\Chargeback;
+use MaxMind\MinFraudChargeback\Exception\ExceptionAbstract;
+use MaxMind\MinFraudChargeback\Exception;
 use Curl\Curl;
 use Webmozart\Assert\Assert;
 use RuntimeException;

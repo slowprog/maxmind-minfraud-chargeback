@@ -1,6 +1,6 @@
 <?php
 
-namespace Pachico\MaxMind\MinFraudChargeback;
+namespace MaxMind\MinFraudChargeback;
 
 class ManagerTest extends \PHPUnit_Framework_TestCase
 {
@@ -15,10 +15,10 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $credentialMockBuilder = $this->getMockBuilder('Pachico\MaxMind\MinFraudChargeback\Auth\Credential')
+        $credentialMockBuilder = $this->getMockBuilder('MaxMind\MinFraudChargeback\Auth\Credential')
             ->disableOriginalConstructor();
         $credentialMock = $credentialMockBuilder->getMock();
-        $this->clientMock = $this->getMock('Pachico\MaxMind\MinFraudChargeback\Http\ClientInterface');
+        $this->clientMock = $this->getMock('MaxMind\MinFraudChargeback\Http\ClientInterface');
 
         $this->manager = new Manager($credentialMock, $this->clientMock);
     }
@@ -26,7 +26,7 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
     public function testReport()
     {
         // Arrange
-        $chargebackMockBuilder = $this->getMockBuilder('Pachico\MaxMind\MinFraudChargeback\Chargeback')
+        $chargebackMockBuilder = $this->getMockBuilder('MaxMind\MinFraudChargeback\Chargeback')
             ->disableOriginalConstructor();
         $chargebackMock = $chargebackMockBuilder->getMock();
 
@@ -61,6 +61,6 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         // Act
         $result = $this->manager->{$methodname}($value);
 
-        $this->assertInstanceOf('\Pachico\MaxMind\MinFraudChargeback\Manager', $result);
+        $this->assertInstanceOf('\MaxMind\MinFraudChargeback\Manager', $result);
     }
 }

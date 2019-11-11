@@ -1,6 +1,6 @@
 <?php
 
-namespace Pachico\MaxMind\MinFraudChargeback;
+namespace MaxMind\MinFraudChargeback;
 
 class ChargebackTest extends \PHPUnit_Framework_TestCase
 {

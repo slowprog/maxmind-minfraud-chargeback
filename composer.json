@@ -1,9 +1,8 @@
 {
-    "name": "pachico/maxmind-minfraud-chargeback",
+    "name": "slowprog/maxmind-minfraud-chargeback",
     "type": "library",
     "description": "Client for Maxmind's minFraud Chargeback Web Service.",
     "keywords": [
-        "pachico",
         "minfraud-chargeback",
         "MaxMind",
         "minFraud",
@@ -12,13 +11,19 @@
         "API",
         "fraud"
     ],
-    "homepage": "https://github.com/pachico/maxmind-minfraud-chargeback/",
+    "homepage": "https://github.com/slowprog/maxmind-minfraud-chargeback/",
     "license": "MIT",
     "authors": [
         {
             "name": "Mariano F.co Benítez Mulet",
             "email": "pachicodev@gmail.com",
             "homepage": "https://github.com/pachico",
+            "role": "Developer"
+        },
+        {
+            "name": "Andrey Tushev",
+            "email": "slowprog@gmail.com",
+            "homepage": "https://github.com/slowprog",
             "role": "Developer"
         }
     ],
@@ -33,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Pachico\\MaxMind\\MinFraudChargeback\\": "src"
+            "MaxMind\\MinFraudChargeback\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pachico\\MaxmMind\\MinFraudChargeback\\": "tests"
+            "MaxmMind\\MinFraudChargeback\\": "tests"
         }
     },
     "scripts": {
