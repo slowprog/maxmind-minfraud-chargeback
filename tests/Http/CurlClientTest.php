@@ -26,7 +26,7 @@ class CurlClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->curlMock = $this->getMock('\Curl\Curl');
+        $this->curlMock = $this->getMockBuilder('\Curl\Curl')->getMock();
         $credentialMockBuilder = $this->getMockBuilder('MaxMind\MinFraudChargeback\Auth\Credential');
         $credentialMockBuilder->disableOriginalConstructor();
         $this->credentialMock = $credentialMockBuilder->getMock();

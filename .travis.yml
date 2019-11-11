@@ -3,12 +3,11 @@ php:
     - '5.6'
     - '7.0'
     - '7.1'
-    - '7.2'
-    - '7.3'
 before_script:
     - composer self-update
     - composer update --no-interaction --prefer-lowest
     - composer dumpautoload -o
+    - composer info | sort
     - pip install --user codecov
 script:
     - composer validate --strict

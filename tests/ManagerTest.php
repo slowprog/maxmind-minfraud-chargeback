@@ -18,7 +18,7 @@ class ManagerTest extends \PHPUnit_Framework_TestCase
         $credentialMockBuilder = $this->getMockBuilder('MaxMind\MinFraudChargeback\Auth\Credential')
             ->disableOriginalConstructor();
         $credentialMock = $credentialMockBuilder->getMock();
-        $this->clientMock = $this->getMock('MaxMind\MinFraudChargeback\Http\ClientInterface');
+        $this->clientMock = $this->getMockBuilder('MaxMind\MinFraudChargeback\Http\ClientInterface')->getMock();
 
         $this->manager = new Manager($credentialMock, $this->clientMock);
     }
